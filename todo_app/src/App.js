@@ -32,25 +32,24 @@ function App() {
 
   return (
     <div className="App">
+      <Container fixed>
       <h1>{'Welcome To React TODO App with Firebase'.toUpperCase()}</h1>
-<form>
-
-  <FormControl>
-    <InputLabel>Write a Todo</InputLabel>
-    <Input value={input} onChange={event => setInput(event.target.value)}/>
- </FormControl>
- <Button type="submit" disabled={!input} onClick={addTodo} variant="contained" color="primary"> Add Todo </Button>
-
-
-</form>
-<Container maxWidth="sm">
-<div className="div_center">
-      {todos.map(todo => (
-                <Todo todo={todo} />
-              ))}
-    </div> 
-</Container>
-       
+      <form>
+        <FormControl>
+          <InputLabel>Write a Todo</InputLabel>
+          <Input value={input} onChange={event => setInput(event.target.value)}/>
+      </FormControl>
+      <Button type="submit" disabled={!input} onClick={addTodo} variant="contained" color="primary"> Add Todo </Button>
+      </form>
+      </Container>
+      <Container maxWidth="sm">
+      <div className="div_center">
+            {todos.map(todo => (
+              <Todo todo={todo} />
+              ))
+            }
+      </div> 
+      </Container>      
 </div>
   );
 }

@@ -72,11 +72,11 @@ function Todo(props) {
                 <ListItemText primary={props.todo.todo} secondary="Dummy Deadline">
                 </ListItemText>
                 <ListItemSecondaryAction>
-                    <IconButton edge="end" aria-label="edit">
+                    <IconButton component="span" aria-label="edit">
                     <EditIcon onClick={editClick} className="edit_icon"></EditIcon>
                     </IconButton>
-                    <IconButton edge="end" aria-label="delete">
-                    <DeleteForeverIcon onClick={event => db.collection('todos').doc(props.todo.id).delete()} variant="contained" color="secondary"></DeleteForeverIcon>
+                    <IconButton component="span" aria-label="delete">
+                    <DeleteForeverIcon  className="edit_icon" onClick={event => db.collection('todos').doc(props.todo.id).delete()} variant="contained" color="secondary"></DeleteForeverIcon>
                     </IconButton>
                   </ListItemSecondaryAction>
                 
