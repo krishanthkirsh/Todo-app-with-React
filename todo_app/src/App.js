@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Button, InputLabel, Input, FormControl} from '@material-ui/core';
+import { Button, InputLabel, Input, FormControl, Container} from '@material-ui/core';
 import './App.css';
 import Todo from './Todo';
 import db from './Firebase';
@@ -41,12 +41,16 @@ function App() {
  </FormControl>
  <Button type="submit" disabled={!input} onClick={addTodo} variant="contained" color="primary"> Add Todo </Button>
 
+
 </form>
-    <div className="div_center">
+<Container maxWidth="sm">
+<div className="div_center">
       {todos.map(todo => (
                 <Todo todo={todo} />
               ))}
-    </div>    
+    </div> 
+</Container>
+       
 </div>
   );
 }
