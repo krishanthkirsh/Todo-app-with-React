@@ -15,7 +15,7 @@ function App() {
     // this code fires when the app loads
     db.collection('todos').orderBy('timestamp','desc').onSnapshot(snapshot => {
       //console.log(snapshot.docs.map(doc => doc.data()));
-      setTodos(snapshot.docs.map(doc => doc.data().todo))
+      setTodos(snapshot.docs.map(doc => ({id : doc.id, todo: doc.data().todo})))
     })
   }, [])
 
@@ -32,9 +32,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>
-        Welcome To React TODO App with Firebase
-      </h1>
+      <h1>{'Welcome To React TODO App with Firebase'.toUpperCase()}</h1>
 <form>
 
   <FormControl>
@@ -44,13 +42,12 @@ function App() {
  <Button type="submit" disabled={!input} onClick={addTodo} variant="contained" color="primary"> Add Todo </Button>
 
 </form>
-  
-      <ul>
-        {todos.map(todo => (
-          <Todo text={todo}/>
-        ))}
-      </ul>
-    </div>
+    <div className="div_center">
+      {todos.map(todo => (
+                <Todo todo={todo} />
+              ))}
+    </div>    
+</div>
   );
 }
 
